@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+<!-- Ouesh Poto qkestufou ici? -->
 <head>
   <meta charset="utf-8">
   <title>En quoi les nouvelles technologies ont-elles pemis l'amélioration des communications à distance?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
+  <script src="./pages/script.js"></script>
   <style>
     .dropdown {
       position: relative;
@@ -40,7 +41,40 @@
     #pageContent div{
       margin: 10px;
     }
+
+    #pageContent img:hover{
+      cursor: zoom-in;
+    }
+
+    #images {
+      position: fixed;
+      left: -10px;
+      top: -10px;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #images:hover{
+      cursor: zoom-out;
+    }
+
+    #images a img:hover{
+      cursor: zoom-out;
+    }
+
+    #images a img{
+      position: fixed;
+      margin: 0px 0px 0px 0px;
+    }
   </style>
+  <style>
+	#pageContent{
+		background-color: rgb(255,0,255);
+	}
+</style>
 </head>
 
 <body class="bg-dark text-light">
@@ -50,7 +84,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar13"> <a class="navbar-brand d-none d-md-block" href="?nav=home">
-          <b>TPE</b>
+          <b>TPE - Accueil</b>
         </a>
         <ul class="navbar-nav mx-auto">
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
@@ -70,8 +104,11 @@
                 href="?nav=television/telecommande">La
                 télécommande</a> </div>
           </li>
+		      <li>
+            <a class="nav-link " href="?nav=conclusion"> Conclusion </a>
+          </li>
           <li>
-            <a class="nav-link dropdown-toggle" href="?nav=question"> Questionnaire </a>
+            <a class="nav-link " href="?nav=questionnaire"> Questionnaire </a>
           </li>
         </ul>
       </div>
@@ -82,10 +119,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="list-group h-25">
-            <a href="?nav=groupe/mathys" class="list-group-item list-group-item-action">Mathys Mortiez<br></a>
-            <a href="?nav=groupe/theo" class="list-group-item list-group-item-action">Théo Nicolas<br></a><a
-              href="?nav=groupe/raphael" class="list-group-item list-group-item-action">Raphaël
-              Montes<br></a>
+            <p class="list-group-item list-group-item-action">Mathys Mortiez<br></p>
+            <p class="list-group-item list-group-item-action">Théo Nicolas<br></p>
+            <p class="list-group-item list-group-item-action">Raphaël Montes<br></p>
           </div>
         </div>
       </div>
@@ -93,7 +129,7 @@
     <div class="container shadow-sm border border-dark rounded bg-light text-dark w-100 mr-3" id="pageContent">
       <script>
         function readTextFile(file) {
-          let allText
+          let allText;
           let rawFile = new XMLHttpRequest();
           rawFile.open("GET", file, false);
           rawFile.onreadystatechange = function () {
@@ -123,6 +159,7 @@
         if (nav == null)
           nav = "home";
         document.getElementById("pageContent").innerHTML = readTextFile("pages/" + nav + ".html");
+        setZoom();
       </script>
     </div>
   </div>
@@ -133,6 +170,7 @@
           <div class="blockquote">
             <p class="mb-0">En quoi les nouvelles technologies ont-elles pemis l'amélioration des communications à distance?<br></p>
             <div class="blockquote-footer">2018-2019<br></div>
+            <a style="float:right; font-size: 16px;" href="?nav=sources">Sources</a>
           </div>
         </div>
       </div>
