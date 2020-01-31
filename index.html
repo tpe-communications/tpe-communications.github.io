@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>En quoi les nouvelles technologies ont-elles pemis l'amélioration des communications à distance?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+      z-index: 1;
+      position: relative;
+      top:30px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu:hover {
+      display: block;
+    }
+
+    .dropdown-item:hover, .list-group-item:hover {
+      display: block;
+      background-color: tan;
+    }
+
+    #pageContent div{
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-light">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-light">
+    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button"
+        data-toggle="collapse" data-target="#navbar13">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar13"> <a class="navbar-brand d-none d-md-block" href="?nav=home">
+          <b>TPE</b>
+        </a>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Les Téléphones </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item"
+                href="?nav=telephone/debuts">Les
+                débuts de la téléphonie</a>
+              <a class="dropdown-item" href="?nav=telephone/portables">L'apparition des téléphones portables</a> <a
+                class="dropdown-item" href="?nav=telephone/moderne">La téléphonie moderne</a> </div>
+          </li>
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> La Télévision </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item"
+                href="?nav=television/debuts">Les
+                débuts de la télévision</a>
+              <a class="dropdown-item" href="?nav=television/moderne">la télévision moderne</a> <a class="dropdown-item"
+                href="?nav=television/telecommande">La
+                télécommande</a> </div>
+          </li>
+          <li>
+            <a class="nav-link dropdown-toggle" href="?nav=question"> Questionnaire </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-3 d-inline-flex bg-dark text-light border-bottom border-light w-100">
+    <div class="container h-100 w-25 m-0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="list-group h-25">
+            <a href="?nav=groupe/mathys" class="list-group-item list-group-item-action">Mathys Mortiez<br></a>
+            <a href="?nav=groupe/theo" class="list-group-item list-group-item-action">Théo Nicolas<br></a><a
+              href="?nav=groupe/raphael" class="list-group-item list-group-item-action">Raphaël
+              Montes<br></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container shadow-sm border border-dark rounded bg-light text-dark w-100 mr-3" id="pageContent">
+      <script>
+        function readTextFile(file) {
+          let allText
+          let rawFile = new XMLHttpRequest();
+          rawFile.open("GET", file, false);
+          rawFile.onreadystatechange = function () {
+            if (rawFile.readyState === 4) {
+              if (rawFile.status === 200 || rawFile.status == 0) {
+                allText = rawFile.responseText;
+              }
+            }
+          }
+          rawFile.send(null);
+          return allText;
+        }
+
+        function findGetParameter(parameterName) {
+          let result = null,
+            tmp = [];
+          location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+              tmp = item.split("=");
+              if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            });
+          return result;
+        }
+        let nav = findGetParameter("nav");
+        if (nav == null)
+          nav = "home";
+        document.getElementById("pageContent").innerHTML = readTextFile("pages/" + nav + ".html");
+      </script>
+    </div>
+  </div>
+  <div class="text-center py-5 h-25" style="">
+    <div class="container w-100">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blockquote">
+            <p class="mb-0">En quoi les nouvelles technologies ont-elles pemis l'amélioration des communications à distance?<br></p>
+            <div class="blockquote-footer">2018-2019<br></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="./popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="./bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
